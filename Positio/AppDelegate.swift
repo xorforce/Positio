@@ -22,17 +22,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if accepted == false{
                 print("Not accepted!")
             }
-            
+        }
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 230.0/255.0, blue: 118.0/255.0, alpha: 1.0)
+        
+        if let barFont = UIFont(name: "Avenir-Light", size: 22.0){
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName : barFont]
         }
         return true
     }
     
+    
     func scheduleNotifications(at date:Date){
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
-        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        _ = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
         let content = UNMutableNotificationContent()
         content.title = "Reminder!!"
         content.body = "Just a reminder to place you in your correct posture"
@@ -67,6 +74,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { (timer) in
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            delegate?.scheduleNotifications(at: Date(timeIntervalSinceNow: TimeInterval(exactly: 5.0)!))
+            
+        }
+
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
