@@ -12,6 +12,7 @@
 		6B6FEDA11E4E590700AF1BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6FED9F1E4E590700AF1BAE /* Main.storyboard */; };
 		6B6FEDA31E4E590700AF1BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B6FEDA21E4E590700AF1BAE /* Assets.xcassets */; };
 		6B6FEDA61E4E590700AF1BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6FEDA41E4E590700AF1BAE /* LaunchScreen.storyboard */; };
+		6B6FEE231E4E9D9200AF1BAE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6FEE221E4E9D9200AF1BAE /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		6B6FEDA21E4E590700AF1BAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B6FEDA51E4E590700AF1BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B6FEDA71E4E590700AF1BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B6FEE221E4E9D9200AF1BAE /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			children = (
 				6B6FED9A1E4E590700AF1BAE /* Positio */,
 				6B6FED991E4E590700AF1BAE /* Products */,
+				6B6FEDB31E4E6D1900AF1BAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +63,16 @@
 				6B6FEDA21E4E590700AF1BAE /* Assets.xcassets */,
 				6B6FEDA41E4E590700AF1BAE /* LaunchScreen.storyboard */,
 				6B6FEDA71E4E590700AF1BAE /* Info.plist */,
+				6B6FEE221E4E9D9200AF1BAE /* CameraViewController.swift */,
 			);
 			path = Positio;
+			sourceTree = "<group>";
+		};
+		6B6FEDB31E4E6D1900AF1BAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +108,7 @@
 					6B6FED971E4E590700AF1BAE = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = VG36S3M9UZ;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,6 +151,7 @@
 			files = (
 				6B6FED9E1E4E590700AF1BAE /* ViewController.swift in Sources */,
 				6B6FED9C1E4E590700AF1BAE /* AppDelegate.swift in Sources */,
+				6B6FEE231E4E9D9200AF1BAE /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,11 +272,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = VG36S3M9UZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Positio",
+				);
 				INFOPLIST_FILE = Positio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bhagat-singh.Positio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,11 +292,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = VG36S3M9UZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Positio",
+				);
 				INFOPLIST_FILE = Positio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bhagat-singh.Positio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -300,6 +326,7 @@
 				6B6FEDAC1E4E590700AF1BAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

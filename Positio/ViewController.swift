@@ -19,7 +19,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func datePickerDidSelectNewDate(_ sender: UIDatePicker) {
+        
+        let selectedDate = sender.date
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.scheduleNotifications(at: selectedDate)
+        
+    }
 
+    
 
 }
 
